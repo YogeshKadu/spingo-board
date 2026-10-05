@@ -111,17 +111,18 @@ const HandlePlay = (playWith) => {
     window.startGameEvent.trigger();
 }
 const BackToHome = () => {
-    // InitializeSettings();
     window.game = {...JSON.parse(JSON.stringify(defaultSettings.game))};
     if(window.settings.complexity == "easy") {
         HandlePlayEasyGame();
     }else {
         HandlePlayComplexGame();
     }
+    audioController.stopAll();
     mainSection.classList.remove("hidden");
     gameBoardSection.classList.add("hidden");
 }
 const HandlePlayEasyGame = () => {
+    audioController.play("CLICK");
     window.settings.complexity = "easy";
     easyGameButton.children[0].classList.remove("border-2");
     easyGameButton.children[0].classList.add("bg-white");
@@ -129,6 +130,7 @@ const HandlePlayEasyGame = () => {
     complexGameButton.children[0].classList.add("border-2");
 }
 const HandlePlayComplexGame = () => {
+    audioController.play("CLICK");
     window.settings.complexity = "complex";
     easyGameButton.children[0].classList.remove("bg-white");
     easyGameButton.children[0].classList.add("border-2");

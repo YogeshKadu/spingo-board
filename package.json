@@ -1,6 +1,6 @@
 {
   "name": "spingo",
-  "version": "1.0.0",
+  "version": "0.1.5",
   "description": "> **Bingo, but the board won't stay still.**",
   "main": "electron/main.js",
   "engines": {
@@ -10,8 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "electron": "electron .",
     "start": "electron-forge start",
-    "package": "electron-forge package --arch='ia32,x64'",
-    "make": "electron-forge make --arch='ia32,x64'",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
     "publish": "electron-forge publish"
   },
   "repository": {
@@ -26,6 +26,20 @@
     "url": "https://github.com/YogeshKadu/jam-bingo/issues"
   },
   "homepage": "https://github.com/YogeshKadu/jam-bingo#readme",
+  "config": {
+    "forge": {
+      "packagerConfig" : {
+        "name": "SpinGo",
+        "icon": "electron/favicon/favicon.ico",
+        "asar": true
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-zip"
+        }
+      ]
+    }
+  },
   "devDependencies": {
     "@electron-forge/cli": "^8.0.1",
     "@electron-forge/maker-deb": "^8.0.1",
