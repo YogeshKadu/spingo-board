@@ -112,6 +112,7 @@ const HandlePlay = (playWith) => {
 }
 const BackToHome = () => {
     // InitializeSettings();
+    audioController.stopAll();
     window.game = {...JSON.parse(JSON.stringify(defaultSettings.game))};
     if(window.settings.complexity == "easy") {
         HandlePlayEasyGame();
@@ -127,6 +128,7 @@ const HandlePlayEasyGame = () => {
     easyGameButton.children[0].classList.add("bg-white");
     complexGameButton.children[0].classList.remove("bg-white");
     complexGameButton.children[0].classList.add("border-2");
+    audioController.play("CLICK");
 }
 const HandlePlayComplexGame = () => {
     window.settings.complexity = "complex";
@@ -134,6 +136,7 @@ const HandlePlayComplexGame = () => {
     easyGameButton.children[0].classList.add("border-2");
     complexGameButton.children[0].classList.remove("border-2");
     complexGameButton.children[0].classList.add("bg-white");
+    audioController.play("CLICK");
 }
 const HandleCloseGameOverModal = () => {
     inGameOverModal?.close();
